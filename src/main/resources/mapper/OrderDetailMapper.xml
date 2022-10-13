@@ -5,19 +5,20 @@
 <mapper namespace="ruiji_takeout.mapper.OrderDetailMapper">
 
     <resultMap id="BaseResultMap" type="ruiji_takeout.pojo.OrderDetail">
-            <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="name" column="name" jdbcType="VARCHAR"/>
-            <result property="image" column="image" jdbcType="VARCHAR"/>
-            <result property="orderId" column="order_id" jdbcType="BIGINT"/>
-            <result property="dishId" column="dish_id" jdbcType="BIGINT"/>
-            <result property="setmealId" column="setmeal_id" jdbcType="BIGINT"/>
-            <result property="dishFlavor" column="dish_flavor" jdbcType="VARCHAR"/>
-            <result property="number" column="number" jdbcType="INTEGER"/>
-            <result property="amount" column="amount" jdbcType="DECIMAL"/>
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="image" column="image" jdbcType="VARCHAR"/>
+        <result property="orderId" column="order_id" jdbcType="BIGINT"/>
+        <result property="dishId" column="dish_id" jdbcType="BIGINT"/>
+        <result property="setmealId" column="setmeal_id" jdbcType="BIGINT"/>
+        <result property="dishFlavor" column="dish_flavor" jdbcType="VARCHAR"/>
+        <result property="number" column="number" jdbcType="INTEGER"/>
+        <result property="amount" column="amount" jdbcType="DECIMAL"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,name,image,
+        id
+        ,name,image,
         order_id,dish_id,setmeal_id,
         dish_flavor,number,amount
     </sql>

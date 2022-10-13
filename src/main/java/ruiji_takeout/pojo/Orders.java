@@ -11,84 +11,71 @@ import java.util.Date;
 
 /**
  * 订单表
+ *
  * @TableName orders
  */
-@TableName(value ="orders")
+@TableName(value = "orders")
 @Data
 public class Orders implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
      * 主键
      */
     @TableId
     private Long id;
-
     /**
      * 订单号
      */
     private String number;
-
     /**
      * 订单状态 1待付款，2待派送，3已派送，4已完成，5已取消
      */
     private Integer status;
-
     /**
      * 下单用户
      */
     private Long userId;
-
     /**
      * 地址id
      */
     private Long addressBookId;
-
     /**
      * 下单时间
      */
     private Date orderTime;
-
     /**
      * 结账时间
      */
     private Date checkoutTime;
-
     /**
      * 支付方式 1微信,2支付宝
      */
     private Integer payMethod;
-
     /**
      * 实收金额
      */
     private BigDecimal amount;
-
     /**
      * 备注
      */
     private String remark;
-
     /**
-     * 
+     *
      */
     private String phone;
-
     /**
-     * 
+     *
      */
     private String address;
-
     /**
-     * 
+     *
      */
     private String userName;
-
     /**
-     * 
+     *
      */
     private String consignee;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -103,19 +90,19 @@ public class Orders implements Serializable {
         }
         Orders other = (Orders) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getNumber() == null ? other.getNumber() == null : this.getNumber().equals(other.getNumber()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (this.getAddressBookId() == null ? other.getAddressBookId() == null : this.getAddressBookId().equals(other.getAddressBookId()))
-            && (this.getOrderTime() == null ? other.getOrderTime() == null : this.getOrderTime().equals(other.getOrderTime()))
-            && (this.getCheckoutTime() == null ? other.getCheckoutTime() == null : this.getCheckoutTime().equals(other.getCheckoutTime()))
-            && (this.getPayMethod() == null ? other.getPayMethod() == null : this.getPayMethod().equals(other.getPayMethod()))
-            && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
-            && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
-            && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
-            && (this.getConsignee() == null ? other.getConsignee() == null : this.getConsignee().equals(other.getConsignee()));
+                && (this.getNumber() == null ? other.getNumber() == null : this.getNumber().equals(other.getNumber()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+                && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+                && (this.getAddressBookId() == null ? other.getAddressBookId() == null : this.getAddressBookId().equals(other.getAddressBookId()))
+                && (this.getOrderTime() == null ? other.getOrderTime() == null : this.getOrderTime().equals(other.getOrderTime()))
+                && (this.getCheckoutTime() == null ? other.getCheckoutTime() == null : this.getCheckoutTime().equals(other.getCheckoutTime()))
+                && (this.getPayMethod() == null ? other.getPayMethod() == null : this.getPayMethod().equals(other.getPayMethod()))
+                && (this.getAmount() == null ? other.getAmount() == null : this.getAmount().equals(other.getAmount()))
+                && (this.getRemark() == null ? other.getRemark() == null : this.getRemark().equals(other.getRemark()))
+                && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+                && (this.getAddress() == null ? other.getAddress() == null : this.getAddress().equals(other.getAddress()))
+                && (this.getUserName() == null ? other.getUserName() == null : this.getUserName().equals(other.getUserName()))
+                && (this.getConsignee() == null ? other.getConsignee() == null : this.getConsignee().equals(other.getConsignee()));
     }
 
     @Override

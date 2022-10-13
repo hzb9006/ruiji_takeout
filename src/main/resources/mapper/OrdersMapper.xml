@@ -5,24 +5,25 @@
 <mapper namespace="ruiji_takeout.mapper.OrdersMapper">
 
     <resultMap id="BaseResultMap" type="ruiji_takeout.pojo.Orders">
-            <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="number" column="number" jdbcType="VARCHAR"/>
-            <result property="status" column="status" jdbcType="INTEGER"/>
-            <result property="userId" column="user_id" jdbcType="BIGINT"/>
-            <result property="addressBookId" column="address_book_id" jdbcType="BIGINT"/>
-            <result property="orderTime" column="order_time" jdbcType="TIMESTAMP"/>
-            <result property="checkoutTime" column="checkout_time" jdbcType="TIMESTAMP"/>
-            <result property="payMethod" column="pay_method" jdbcType="INTEGER"/>
-            <result property="amount" column="amount" jdbcType="DECIMAL"/>
-            <result property="remark" column="remark" jdbcType="VARCHAR"/>
-            <result property="phone" column="phone" jdbcType="VARCHAR"/>
-            <result property="address" column="address" jdbcType="VARCHAR"/>
-            <result property="userName" column="user_name" jdbcType="VARCHAR"/>
-            <result property="consignee" column="consignee" jdbcType="VARCHAR"/>
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="number" column="number" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="BIGINT"/>
+        <result property="addressBookId" column="address_book_id" jdbcType="BIGINT"/>
+        <result property="orderTime" column="order_time" jdbcType="TIMESTAMP"/>
+        <result property="checkoutTime" column="checkout_time" jdbcType="TIMESTAMP"/>
+        <result property="payMethod" column="pay_method" jdbcType="INTEGER"/>
+        <result property="amount" column="amount" jdbcType="DECIMAL"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="consignee" column="consignee" jdbcType="VARCHAR"/>
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,number,status,
+        id
+        ,number,status,
         user_id,address_book_id,order_time,
         checkout_time,pay_method,amount,
         remark,phone,address,

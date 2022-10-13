@@ -9,49 +9,43 @@ import java.io.Serializable;
 
 /**
  * 用户信息
+ *
  * @TableName user
  */
-@TableName(value ="user")
+@TableName(value = "user")
 @Data
 public class User implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
      * 主键
      */
     @TableId
     private Long id;
-
     /**
      * 姓名
      */
     private String name;
-
     /**
      * 手机号
      */
     private String phone;
-
     /**
      * 性别
      */
     private String sex;
-
     /**
      * 身份证号
      */
     private String idNumber;
-
     /**
      * 头像
      */
     private String avatar;
-
     /**
      * 状态 0:禁用，1:正常
      */
     private Integer status;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -66,12 +60,12 @@ public class User implements Serializable {
         }
         User other = (User) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getIdNumber() == null ? other.getIdNumber() == null : this.getIdNumber().equals(other.getIdNumber()))
-            && (this.getAvatar() == null ? other.getAvatar() == null : this.getAvatar().equals(other.getAvatar()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+                && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
+                && (this.getIdNumber() == null ? other.getIdNumber() == null : this.getIdNumber().equals(other.getIdNumber()))
+                && (this.getAvatar() == null ? other.getAvatar() == null : this.getAvatar().equals(other.getAvatar()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()));
     }
 
     @Override

@@ -10,74 +10,63 @@ import java.util.Date;
 
 /**
  * 员工信息
+ *
  * @TableName employee
  */
-@TableName(value ="employee")
+@TableName(value = "employee")
 @Data
 public class Employee implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
      * 主键
      */
     @TableId
     private Long id;
-
     /**
      * 姓名
      */
     private String name;
-
     /**
      * 用户名
      */
     private String username;
-
     /**
      * 密码
      */
     private String password;
-
     /**
      * 手机号
      */
     private String phone;
-
     /**
      * 性别
      */
     private String sex;
-
     /**
      * 身份证号
      */
     private String idNumber;
-
     /**
      * 状态 0:禁用，1:正常
      */
     private Integer status;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 更新时间
      */
     private Date updateTime;
-
     /**
      * 创建人
      */
     private Long createUser;
-
     /**
      * 修改人
      */
     private Long updateUser;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -92,17 +81,17 @@ public class Employee implements Serializable {
         }
         Employee other = (Employee) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
-            && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getIdNumber() == null ? other.getIdNumber() == null : this.getIdNumber().equals(other.getIdNumber()))
-            && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getCreateUser() == null ? other.getCreateUser() == null : this.getCreateUser().equals(other.getCreateUser()))
-            && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()));
+                && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
+                && (this.getUsername() == null ? other.getUsername() == null : this.getUsername().equals(other.getUsername()))
+                && (this.getPassword() == null ? other.getPassword() == null : this.getPassword().equals(other.getPassword()))
+                && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+                && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
+                && (this.getIdNumber() == null ? other.getIdNumber() == null : this.getIdNumber().equals(other.getIdNumber()))
+                && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+                && (this.getCreateUser() == null ? other.getCreateUser() == null : this.getCreateUser().equals(other.getCreateUser()))
+                && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()));
     }
 
     @Override

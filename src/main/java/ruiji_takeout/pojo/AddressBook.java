@@ -10,109 +10,91 @@ import java.util.Date;
 
 /**
  * 地址管理
+ *
  * @TableName address_book
  */
-@TableName(value ="address_book")
+@TableName(value = "address_book")
 @Data
 public class AddressBook implements Serializable {
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
     /**
      * 主键
      */
     @TableId
     private Long id;
-
     /**
      * 用户id
      */
     private Long userId;
-
     /**
      * 收货人
      */
     private String consignee;
-
     /**
      * 性别 0 女 1 男
      */
     private Integer sex;
-
     /**
      * 手机号
      */
     private String phone;
-
     /**
      * 省级区划编号
      */
     private String provinceCode;
-
     /**
      * 省级名称
      */
     private String provinceName;
-
     /**
      * 市级区划编号
      */
     private String cityCode;
-
     /**
      * 市级名称
      */
     private String cityName;
-
     /**
      * 区级区划编号
      */
     private String districtCode;
-
     /**
      * 区级名称
      */
     private String districtName;
-
     /**
      * 详细地址
      */
     private String detail;
-
     /**
      * 标签
      */
     private String label;
-
     /**
      * 默认 0 否 1是
      */
     private Integer isDefault;
-
     /**
      * 创建时间
      */
     private Date createTime;
-
     /**
      * 更新时间
      */
     private Date updateTime;
-
     /**
      * 创建人
      */
     private Long createUser;
-
     /**
      * 修改人
      */
     private Long updateUser;
-
     /**
      * 是否删除
      */
     private Integer isDeleted;
-
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
 
     @Override
     public boolean equals(Object that) {
@@ -127,24 +109,24 @@ public class AddressBook implements Serializable {
         }
         AddressBook other = (AddressBook) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
-            && (this.getConsignee() == null ? other.getConsignee() == null : this.getConsignee().equals(other.getConsignee()))
-            && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
-            && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
-            && (this.getProvinceCode() == null ? other.getProvinceCode() == null : this.getProvinceCode().equals(other.getProvinceCode()))
-            && (this.getProvinceName() == null ? other.getProvinceName() == null : this.getProvinceName().equals(other.getProvinceName()))
-            && (this.getCityCode() == null ? other.getCityCode() == null : this.getCityCode().equals(other.getCityCode()))
-            && (this.getCityName() == null ? other.getCityName() == null : this.getCityName().equals(other.getCityName()))
-            && (this.getDistrictCode() == null ? other.getDistrictCode() == null : this.getDistrictCode().equals(other.getDistrictCode()))
-            && (this.getDistrictName() == null ? other.getDistrictName() == null : this.getDistrictName().equals(other.getDistrictName()))
-            && (this.getDetail() == null ? other.getDetail() == null : this.getDetail().equals(other.getDetail()))
-            && (this.getLabel() == null ? other.getLabel() == null : this.getLabel().equals(other.getLabel()))
-            && (this.getIsDefault() == null ? other.getIsDefault() == null : this.getIsDefault().equals(other.getIsDefault()))
-            && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
-            && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
-            && (this.getCreateUser() == null ? other.getCreateUser() == null : this.getCreateUser().equals(other.getCreateUser()))
-            && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
-            && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
+                && (this.getUserId() == null ? other.getUserId() == null : this.getUserId().equals(other.getUserId()))
+                && (this.getConsignee() == null ? other.getConsignee() == null : this.getConsignee().equals(other.getConsignee()))
+                && (this.getSex() == null ? other.getSex() == null : this.getSex().equals(other.getSex()))
+                && (this.getPhone() == null ? other.getPhone() == null : this.getPhone().equals(other.getPhone()))
+                && (this.getProvinceCode() == null ? other.getProvinceCode() == null : this.getProvinceCode().equals(other.getProvinceCode()))
+                && (this.getProvinceName() == null ? other.getProvinceName() == null : this.getProvinceName().equals(other.getProvinceName()))
+                && (this.getCityCode() == null ? other.getCityCode() == null : this.getCityCode().equals(other.getCityCode()))
+                && (this.getCityName() == null ? other.getCityName() == null : this.getCityName().equals(other.getCityName()))
+                && (this.getDistrictCode() == null ? other.getDistrictCode() == null : this.getDistrictCode().equals(other.getDistrictCode()))
+                && (this.getDistrictName() == null ? other.getDistrictName() == null : this.getDistrictName().equals(other.getDistrictName()))
+                && (this.getDetail() == null ? other.getDetail() == null : this.getDetail().equals(other.getDetail()))
+                && (this.getLabel() == null ? other.getLabel() == null : this.getLabel().equals(other.getLabel()))
+                && (this.getIsDefault() == null ? other.getIsDefault() == null : this.getIsDefault().equals(other.getIsDefault()))
+                && (this.getCreateTime() == null ? other.getCreateTime() == null : this.getCreateTime().equals(other.getCreateTime()))
+                && (this.getUpdateTime() == null ? other.getUpdateTime() == null : this.getUpdateTime().equals(other.getUpdateTime()))
+                && (this.getCreateUser() == null ? other.getCreateUser() == null : this.getCreateUser().equals(other.getCreateUser()))
+                && (this.getUpdateUser() == null ? other.getUpdateUser() == null : this.getUpdateUser().equals(other.getUpdateUser()))
+                && (this.getIsDeleted() == null ? other.getIsDeleted() == null : this.getIsDeleted().equals(other.getIsDeleted()));
     }
 
     @Override
