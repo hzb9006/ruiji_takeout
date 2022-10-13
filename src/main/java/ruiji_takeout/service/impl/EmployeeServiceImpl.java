@@ -2,7 +2,9 @@ package ruiji_takeout.service.impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 import ruiji_takeout.common.R;
@@ -67,6 +69,20 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee>
     public R<String> lougout(HttpServletRequest request) {
         request.getSession().removeAttribute("employee");
         return R.success("退出成功");
+    }
+
+    @Override
+    public R<Page> selectPage(int page, int pageSize, String name) {
+        // 新增分页插件
+        Page pageinfo =new Page(page,pageSize);
+        // 构造条件查询器
+        LambdaQueryWrapper<Employee> queryWrapper =new LambdaQueryWrapper<>();
+        // 增加查询条件
+        queryWrapper.like(StringUtils.isNotBlank(name),Employee::getName,name);
+        // 查询
+        this.page(pageinfo,queryWrapper);
+        return R.success(pageinfo);
+
     }
 }
 
