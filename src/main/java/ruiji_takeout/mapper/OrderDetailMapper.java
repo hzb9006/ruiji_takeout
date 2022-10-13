@@ -9,6 +9,7 @@ import ruiji_takeout.pojo.OrderDetail;
  * @createDate 2022-10-13 11:29:15
  * @Entity generator.domain.OrderDetail
  */
+
 public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 
 }

@@ -9,6 +9,7 @@ import ruiji_takeout.pojo.ShoppingCart;
  * @createDate 2022-10-13 11:29:15
  * @Entity generator.domain.ShoppingCart
  */
+
 public interface ShoppingCartMapper extends BaseMapper<ShoppingCart> {
 
 }

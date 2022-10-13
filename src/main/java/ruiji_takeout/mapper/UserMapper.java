@@ -9,6 +9,7 @@ import ruiji_takeout.pojo.User;
  * @createDate 2022-10-13 11:29:15
  * @Entity generator.domain.User
  */
+
 public interface UserMapper extends BaseMapper<User> {
 
 }

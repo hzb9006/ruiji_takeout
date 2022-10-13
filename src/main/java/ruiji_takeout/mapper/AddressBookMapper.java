@@ -9,6 +9,7 @@ import ruiji_takeout.pojo.AddressBook;
  * @createDate 2022-10-13 11:29:15
  * @Entity generator.domain.AddressBook
  */
+
 public interface AddressBookMapper extends BaseMapper<AddressBook> {
 
 }

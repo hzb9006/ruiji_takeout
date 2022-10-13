@@ -9,6 +9,7 @@ import ruiji_takeout.pojo.Employee;
  * @createDate 2022-10-13 11:29:15
  * @Entity generator.domain.Employee
  */
+
 public interface EmployeeMapper extends BaseMapper<Employee> {
 
 }

@@ -9,9 +9,9 @@ spring:
     username: root
     password: hzblf219
     url: jdbc:mysql://localhost:3306/reggie?serverTimezone=UTC
-  thymeleaf:
-    prefix: classpath:/templates/
-    suffix: .html
+#  thymeleaf:
+#    prefix: classpath:/templates/
+#    suffix: .html
 
 server:
   port: 8080
@@ -26,6 +26,8 @@ mybatis-plus:
   #      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
   #      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
   configuration:
-    map-underscore-to-camel-case: false
+    map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+  mapper-default-scope:
 

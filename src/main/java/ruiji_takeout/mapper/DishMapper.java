@@ -9,6 +9,7 @@ import ruiji_takeout.pojo.Dish;
  * @createDate 2022-10-13 11:29:15
  * @Entity generator.domain.Dish
  */
+
 public interface DishMapper extends BaseMapper<Dish> {
 
 }

@@ -10,6 +10,7 @@ import ruiji_takeout.pojo.SetmealDish;
  * @createDate 2022-10-13 11:29:15
  * @Entity generator.domain.SetmealDish
  */
+
 public interface SetmealDishMapper extends BaseMapper<SetmealDish> {
 
 }
