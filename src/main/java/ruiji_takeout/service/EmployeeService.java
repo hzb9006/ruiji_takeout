@@ -21,4 +21,10 @@ public interface EmployeeService extends IService<Employee> {
 
     //员工信息的分页查询
     R<Page> selectPage(int page, int pageSize, String name);
+
+    R<String> inserEmp(HttpServletRequest request, Employee employee);
+
+    R<Employee> updateEmployee(HttpServletRequest request, Long id);
+
+    void saveUpdateEmp(HttpServletRequest request, Employee employee);
 }

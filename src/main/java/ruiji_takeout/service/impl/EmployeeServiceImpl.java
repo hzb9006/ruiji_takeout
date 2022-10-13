@@ -7,11 +7,13 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
+import ruiji_takeout.common.BaseContext;
 import ruiji_takeout.common.R;
 import ruiji_takeout.mapper.EmployeeMapper;
 import ruiji_takeout.pojo.Employee;
 import ruiji_takeout.service.EmployeeService;
 
+import javax.jws.WebMethod;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -83,6 +85,58 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper, Employee>
         this.page(pageinfo,queryWrapper);
         return R.success(pageinfo);
 
+    }
+
+    @Override
+    public R<String > inserEmp(HttpServletRequest request, Employee employee) {
+        // 1. 获取当前登录用户的id
+        Long empId = (Long) request.getSession().getAttribute("employee");
+
+        // 2.获取当前要新增的员工的username
+        String username = employee.getUsername();
+
+        // 3. 判断数据库中是否存在相同的username
+        LambdaQueryWrapper<Employee> queryWrapper=new LambdaQueryWrapper<>();
+        queryWrapper.eq(Employee::getUsername,username);
+        Employee one = this.getOne(queryWrapper);
+        if (one!=null){
+            return R.error("不能存在同名的用户");
+        }
+
+        // 4. 对公共字段进行填充--使用元数据处理
+        // todo:优化：尝试spingmvc的拦截器，然后登录的时候获取id，线程共享，免得每个任务都要获取一次id
+        BaseContext.setCurrentId((Long) request.getSession().getAttribute("employee"));
+
+        // 5. 新增员工--设置初始密码123456，并且对密码进行加密
+        employee.setPassword("123456");
+        String password = employee.getPassword();
+        String handlePassword = DigestUtils.md5DigestAsHex(password.getBytes());
+        employee.setPassword(handlePassword);
+        this.save(employee);
+        return R.success("新增员工成功！");
+
+
+    }
+
+    @Override
+    public R<Employee> updateEmployee(HttpServletRequest request, Long id) {
+        // 1. 获取当前登录用户的id
+        Long empId = (Long) request.getSession().getAttribute("employee");
+        // 2. 根据要修改的用户的id查询数据库
+        LambdaQueryWrapper<Employee> queryWrapper=new LambdaQueryWrapper<>();
+        queryWrapper.eq(Employee::getId,id);
+        this.getOne(queryWrapper);
+        // 返回查询到的数据给前端页面，回显
+        return R.success(this.getOne(queryWrapper));
+    }
+
+    @Override
+    public void saveUpdateEmp(HttpServletRequest request, Employee employee) {
+        // 1. 获取当前登录用户的id并且设置当前create_user为登录用户的id
+        BaseContext.setCurrentId((Long) request.getSession().getAttribute("employee"));
+
+        // 2.保存修改的用户数据到数据库
+        this.updateById(employee);
     }
 }
 

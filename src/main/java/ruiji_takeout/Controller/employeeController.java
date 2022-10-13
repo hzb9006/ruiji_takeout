@@ -9,12 +9,11 @@ import ruiji_takeout.pojo.Employee;
 import ruiji_takeout.service.EmployeeService;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @RestController
 @Slf4j
 @RequestMapping("/employee")
-public class LoginController {
+public class employeeController {
     @Autowired
     public  EmployeeService employeeService;
 
@@ -52,6 +51,44 @@ public class LoginController {
         return  employeeService.selectPage(page,pageSize,name);
     }
 
+    /**
+     * 新增员工，并且设置初始密码：123456
+     * @param request
+     * @param employee
+     * @return
+     */
+    @PostMapping
+    public R<String> inserEmp(HttpServletRequest request,@RequestBody Employee employee){
+        employeeService.inserEmp(request,employee);
+        return R.success("新增员工成功");
+    }
 
+    /**
+     * 修改用户信息的步骤一：
+     * 根据id进行用户查询并且回显给前端页面
+     * @param request
+     * @param id
+     * @return
+     */
+    @GetMapping("/{id}")
+    public R<Employee> updateEmployee(HttpServletRequest request,@PathVariable Long id){
+        return employeeService.updateEmployee(request,id);
+
+    }
+
+    /**
+     * 修改用户信息的步骤二：
+     * 根据id更新用户信息--即保存更新后的用户信息
+     * 同时这个方法也可执行启用禁用用户，因为都是更新用户的状态
+     * @param request
+     * @param employee
+     * @return
+     */
+    @PutMapping
+    public R<String> saveUpdateEmp(HttpServletRequest request,@RequestBody Employee employee){
+        employeeService.saveUpdateEmp(request,employee);
+        return R.success("修改员工信息成功");
+
+    }
 
 }
