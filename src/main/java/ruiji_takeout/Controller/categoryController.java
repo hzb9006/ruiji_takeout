@@ -35,4 +35,17 @@ public class categoryController {
 
     }
 
+    // 修改分类
+    @PutMapping
+    public R<String> updateCategory(HttpServletRequest request,@RequestBody Category category){
+        return categoryService.updateCategory(request,category);
+    }
+
+    // 删除套餐分类或菜品分类
+    @DeleteMapping
+    public R<String> deleteCategory(Long ids){
+        categoryService.deleteCategory(ids);
+        return R.success("删除成功！");
+    }
+
 }

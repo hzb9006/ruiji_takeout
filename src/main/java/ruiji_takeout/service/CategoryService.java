@@ -22,4 +22,8 @@ public interface CategoryService extends IService<Category> {
      * @param category
      */
     R<String> inserCategory(HttpServletRequest request,Category category);
+
+    R<String> updateCategory(HttpServletRequest request, Category category);
+
+    void deleteCategory(Long ids);
 }

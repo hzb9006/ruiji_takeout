@@ -2,6 +2,7 @@ package ruiji_takeout.service.impl;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -62,6 +63,34 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
 
 
 
+    }
+
+
+    /**
+     * 修改菜品分类
+     * @param request
+     * @param category
+     * @return
+     */
+    @Override
+    public R<String> updateCategory(HttpServletRequest request, Category category) {
+        // 1.获取当前用户的id
+        BaseContext.setCurrentId((Long) request.getSession().getAttribute("employee"));
+
+        // 2.修改菜品分类
+        // todo:后续去系统学习一下MybatisPlus
+       this.updateById(category);
+
+        return R.success("修改分类成功");
+    }
+
+    /**
+     * 删除菜品分类
+     * @param ids
+     */
+    @Override
+    public void deleteCategory(Long ids) {
+        this.removeById(ids);
     }
 }
 
