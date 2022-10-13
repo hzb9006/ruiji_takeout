@@ -1,8 +1,12 @@
 package ruiji_takeout.service;
 
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+import ruiji_takeout.common.R;
 import ruiji_takeout.pojo.Category;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author 大饼干
@@ -11,4 +15,11 @@ import ruiji_takeout.pojo.Category;
  */
 public interface CategoryService extends IService<Category> {
 
+    R<Page> pageCategory(int page, int pageSize);
+
+    /**
+     * @param request
+     * @param category
+     */
+    R<String> inserCategory(HttpServletRequest request,Category category);
 }
