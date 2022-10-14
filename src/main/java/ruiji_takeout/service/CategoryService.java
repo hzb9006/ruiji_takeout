@@ -7,6 +7,7 @@ import ruiji_takeout.common.R;
 import ruiji_takeout.pojo.Category;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author 大饼干
@@ -26,4 +27,6 @@ public interface CategoryService extends IService<Category> {
     R<String> updateCategory(HttpServletRequest request, Category category);
 
     void deleteCategory(Long ids);
+
+    List<Category> ListCategory(int type);
 }

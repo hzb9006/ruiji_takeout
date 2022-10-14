@@ -10,6 +10,7 @@ import ruiji_takeout.pojo.Category;
 import ruiji_takeout.service.CategoryService;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 /**
@@ -42,10 +43,18 @@ public class categoryController {
     }
 
     // 删除套餐分类或菜品分类
+    // todo: 删除套餐导致后续菜品分页查询的时候，找不到对应的套餐id。会报错，优化一下
     @DeleteMapping
     public R<String> deleteCategory(Long ids){
         categoryService.deleteCategory(ids);
         return R.success("删除成功！");
+    }
+
+    // 菜品分类
+    @GetMapping("/list")
+    public R<List<Category>> ListCategory(int type){
+        return R.success( categoryService.ListCategory(type));
+
     }
 
 }

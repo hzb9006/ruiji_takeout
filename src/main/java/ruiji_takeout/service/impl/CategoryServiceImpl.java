@@ -14,6 +14,7 @@ import ruiji_takeout.service.CategoryService;
 
 import javax.naming.Name;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * @author 大饼干
@@ -91,6 +92,15 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category>
     @Override
     public void deleteCategory(Long ids) {
         this.removeById(ids);
+    }
+
+    @Override
+    public List<Category> ListCategory(int type) {
+        // 查询type为前端输入值的分类--type=1即菜品分类
+        LambdaQueryWrapper<Category> queryWrapper=new LambdaQueryWrapper<>();
+        queryWrapper.eq(Category::getType,type);
+        return this.list(queryWrapper);
+
     }
 }
 

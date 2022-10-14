@@ -28,6 +28,6 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-  mapper-default-scope:
+jpg:
+  path: C:\\Users\\大饼干\\Desktop\\瑞吉外卖照片\
 
